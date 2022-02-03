@@ -25,17 +25,16 @@ void Game::run()
         {
             if(event.type == SDL_QUIT)
             {
-                isDone = false;
+                isDone = true;
                 break;
             }
         }
 
         //This is for testing
+        graphics.setColor(255, 255, 255, 255);                
         graphics.clear();
-        graphics.setColor(0, 0, 0, 1);
         graphics.present();
 
-        SDL_Delay(2000);
     }
 };
 
