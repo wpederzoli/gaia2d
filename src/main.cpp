@@ -13,4 +13,4 @@ int main(int argc, char const *argv[])
     game.run();
 
     return 0;
-}
+};

@@ -24,13 +24,13 @@ void Input::init()
         this->mouseKeys[i] = SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(i);
         this->prevMouseKeys[i] = false;
     }
-}
+};
 
 void Input::kill()
 {
     delete[] this->keys;
     delete[] this->prevKeys;
-}
+};
 
 void Input::update()
 {
@@ -50,7 +50,7 @@ void Input::update()
         this->prevMouseKeys[i] = this->mouseKeys[i];
         this->mouseKeys[i] = SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(i);
     }
-}
+};
 
 bool Input::keyDown(int key)
 {
@@ -58,7 +58,7 @@ bool Input::keyDown(int key)
         return false;
     
     return this->keys[key];
-}
+};
 
 bool Input::keyHit(int key)
 {
@@ -66,7 +66,7 @@ bool Input::keyHit(int key)
         return false;
 
     return (this->keys[key] && !this->prevKeys[key]);
-}
+};
 
 bool Input::keyUp(int key)
 {
@@ -74,7 +74,7 @@ bool Input::keyUp(int key)
         return false;
 
     return (this->prevKeys[key] && !this->keys[key]);
-}
+};
 
 bool Input::mouseDown(int key)
 {
@@ -83,7 +83,7 @@ bool Input::mouseDown(int key)
         return false;
     
     return this->mouseKeys[key];
-}
+};
 
 bool Input::mouseHit(int key)
 {
@@ -92,7 +92,7 @@ bool Input::mouseHit(int key)
         return false;
     
     return (this->mouseKeys[key] && !this->prevMouseKeys[key]);
-}
+};
 
 bool Input::mouseUp(int key)
 {
@@ -101,22 +101,22 @@ bool Input::mouseUp(int key)
         return false;
     
     return (this->prevKeys[key] && !this->mouseKeys[key]);
-}
+};
 
 int Input::getMouseX()
 {
     return this->mouseX;
-}
+};
 
 int Input::getMouseY()
 {
     return this->mouseY;
-}
+};
 
 void Input::setMousePosition(int x, int y)
 {
     SDL_WarpMouseGlobal(x, y);
-}
+};
 
 void Input::hideCursor(bool hide)
 {
@@ -124,4 +124,4 @@ void Input::hideCursor(bool hide)
         SDL_ShowCursor(SDL_DISABLE);
     else
         SDL_ShowCursor(SDL_ENABLE);
-}
+};

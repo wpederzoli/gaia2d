@@ -57,4 +57,4 @@ void Game::end()
 void Game::kill()
 {
     SDL_Quit();
-}
+};

@@ -71,4 +71,4 @@ SDL_Renderer* Graphics::getRenderer() const
 void Graphics::present()
 {
     SDL_RenderPresent(this->renderer);
-}
+};
