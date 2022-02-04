@@ -37,6 +37,7 @@ void Game::run()
         
         this->input.update();
 
+
         //This is for testing
         graphics.setColor(255, 255, 255, 255);                
         graphics.clear();

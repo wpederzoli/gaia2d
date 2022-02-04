@@ -3,7 +3,7 @@
 
 void Input::init()
 {
-    const Uint8* keyboard = SDL_GetKeyboardState(&this->numKeys);
+    const Uint8* keyboard = (Uint8*) SDL_GetKeyboardState(&this->numKeys);
 
     this->keys = new bool[this->numKeys];
     this->prevKeys = new bool[this->numKeys];
@@ -20,7 +20,7 @@ void Input::init()
     //Number of mouse keys is 3
     for(int i = 1; i <= 3; i++)
     {
-        //Comparison by bit
+        //Comparison by bit (binary)
         this->mouseKeys[i] = SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(i);
         this->prevMouseKeys[i] = false;
     }
@@ -34,7 +34,7 @@ void Input::kill()
 
 void Input::update()
 {
-    const Uint8* keyboard = SDL_GetKeyboardState(&this->numKeys);
+    const Uint8* keyboard = (Uint8*) SDL_GetKeyboardState(&this->numKeys);
 
     for(int i = 0; i < this->numKeys; i++)
     {
@@ -56,7 +56,7 @@ bool Input::keyDown(int key)
 {
     if(key < 0 || key > this->numKeys)
         return false;
-    
+
     return this->keys[key];
 };
 
