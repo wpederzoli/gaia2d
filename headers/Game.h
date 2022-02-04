@@ -9,7 +9,7 @@ class Game
         Graphics graphics;
         //Input input
         //Audio audio
-        //int fps
+        int fps;
         bool isDone;
     
     public:
