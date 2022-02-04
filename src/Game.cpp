@@ -3,6 +3,7 @@
 Game::Game() 
 {
     this->isDone = false;
+    this->fps = 60;
 };
 
 Game::~Game()
@@ -20,6 +21,8 @@ void Game::run()
 {
     while(!this->isDone)
     {
+        unsigned int frameStart = SDL_GetTicks();
+        
         SDL_Event event;
         while(SDL_PollEvent(&event) )
         {
@@ -35,6 +38,10 @@ void Game::run()
         graphics.clear();
         graphics.present();
 
+        int frameTime = SDL_GetTicks() - frameStart;
+        int delay = (1000/this->fps) - frameTime;
+
+        SDL_Delay(delay);
     }
 };
 
