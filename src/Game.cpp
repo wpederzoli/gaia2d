@@ -14,6 +14,9 @@ bool Game::initSystem(char const title[], int width, int height, bool fullscreen
     if(!graphics.init(title, width, height, fullscreen) )
         return false;
     
+    if(!audio.init())
+        return false;
+
     input.init();
 
     return true;

@@ -3,13 +3,14 @@
 
 #include "Graphics.h"
 #include "Input.h"
+#include "Audio.h"
 
 class Game
 {
     private:
         Graphics graphics;
         Input input;
-        //Audio audio
+        Audio audio;
         int fps;
         bool isDone;
     
