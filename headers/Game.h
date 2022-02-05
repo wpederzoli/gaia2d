@@ -2,14 +2,16 @@
 #define GAME_H
 
 #include "Graphics.h"
+#include "Input.h"
+#include "Audio.h"
 
 class Game
 {
     private:
         Graphics graphics;
-        //Input input
-        //Audio audio
-        //int fps
+        Input input;
+        Audio audio;
+        int fps;
         bool isDone;
     
     public:

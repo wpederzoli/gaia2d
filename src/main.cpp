@@ -4,7 +4,7 @@ int main(int argc, char const *argv[])
 {
     Game game;
     
-    if(!game.initSystem("Custom engine", 940, 480, false) ) 
+    if(!game.initSystem("Custom engine", 960, 480, false) ) 
     {
         game.kill();
         return 0;
@@ -13,4 +13,4 @@ int main(int argc, char const *argv[])
     game.run();
 
     return 0;
-}
+};

@@ -46,6 +46,10 @@ bool Graphics::init(char const title[], int width, int height, bool fullscreen)
         }
     }
 
+    //Set width and height
+    this->width = width;
+    this->height = height;
+
     return true;
 };
 
@@ -67,4 +71,4 @@ SDL_Renderer* Graphics::getRenderer() const
 void Graphics::present()
 {
     SDL_RenderPresent(this->renderer);
-}
+};
