@@ -18,10 +18,18 @@ class Game
         Game();
         ~Game();
 
+        Graphics* getGraphics();
+        Input* getInput();
+
         bool initSystem(char const title[], int width, int height, bool fullscreen);
         void run();
         void end();
         void kill();
+
+        virtual bool init();
+        virtual void free();
+        virtual void update();
+        virtual void draw(Graphics* g);
 };
 
 #endif

@@ -18,10 +18,17 @@ class Image
         ~Image();
         
         bool load(char const filePath[], Graphics* g);
+        bool load(char const filePath[], int frameWidth, int frameHeight, Graphics* g);
+
         void setFrame(int x, int y);
         void draw(int x, int y, const Graphics* g);
         void draw(int x, int y, int width, int height, const Graphics* g);
+
         void drawSprite(int sx, int sy, int sw, int sh, int dx, int dy, int dw, int dh, Graphics* g);
+        void drawSprite(int sx, int sy, int sw, int sh, int scale, Graphics* g);
+        void drawSprite(int x, int y, int frame, Graphics* g);
+
+        void free();
 };
 
 #endif
