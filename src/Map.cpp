@@ -164,7 +164,7 @@ void Map::draw(int layer, int xOffset, int yOffset, Graphics* g)
             if(frame >= 0)
             {
                 if(layer == 0)
-                    printf("Draw colliders\n");
+                    g->drawRect(x*tileWidth - xOffset, y*tileHeight - yOffset, tileWidth, tileHeight, 255, 0, 0);
                 else    
                     tiles.drawSprite(x*tileWidth - xOffset, y*tileHeight - yOffset, frame, g);
             }

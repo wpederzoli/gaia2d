@@ -3,7 +3,7 @@
 
 void Input::init()
 {
-    Uint8* keyboard = (Uint8*) SDL_GetKeyboardState(&this->numKeys);
+    const Uint8* keyboard = (Uint8*) SDL_GetKeyboardState(&this->numKeys);
 
     this->keys = new bool[this->numKeys];
     this->prevKeys = new bool[this->numKeys];

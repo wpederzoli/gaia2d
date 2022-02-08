@@ -60,7 +60,7 @@ void Graphics::clear()
 
 void Graphics::setColor(int r, int g, int b, int a)
 {
-    SDL_SetRenderDrawColor(this->renderer, r, g, b, a);
+    SDL_SetRenderDrawColor(getRenderer(), r, g, b, a);
 };
 
 SDL_Renderer* Graphics::getRenderer() const
@@ -82,3 +82,10 @@ void Graphics::present()
 {
     SDL_RenderPresent(this->renderer);
 };
+
+void Graphics::drawRect(int x, int y, int w, int h, int r, int g, int b)
+{
+    SDL_Rect rect = {x, y, w, h};
+    SDL_RenderDrawRect(getRenderer(), &rect);
+    setColor(r, g, b, 255);
+};  

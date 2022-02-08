@@ -48,7 +48,6 @@ bool Image::load(char const filePath[], Graphics* g)
 
 bool Image::load(char const filePath[], int frameWidth, int frameHeight, Graphics* g)
 {
-    printf("This is load overload\n");
     if(!this->load(filePath, g) )
         return false;
     

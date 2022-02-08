@@ -23,7 +23,7 @@ class Graphics
         int getHeight();
         int getWidth();
         void present();
-
+        void drawRect(int x, int y, int w, int h, int r, int b, int g);
 };
 
 #endif
