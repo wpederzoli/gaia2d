@@ -55,7 +55,7 @@ void MapNode::move(int x, int y)
         return;
     }
 
-    this->setX(this->getX() + 1);
+    this->setX(this->getX() + x);
 
     if(x < 0)
     {

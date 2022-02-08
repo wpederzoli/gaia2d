@@ -129,7 +129,7 @@ bool Rectangle::overlaps(Rectangle rect)
 
 bool Rectangle::contains(int x, int y)
 {
-    if(x >= this->getX() && y >= this->getY() && x <= this.getX2() && y <= this->getY2() )
+    if(x >= this->getX() && y >= this->getY() && x <= this->getX2() && y <= this->getY2() )
         return true;
     
     return false;
