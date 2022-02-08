@@ -35,6 +35,13 @@ class Map
 
         bool isTileSolid(int tile);
         bool checkSolid(int x, int y);
+
+        int getTileWidth(){ return this->tileWidth; };
+        int getTileHeight(){ return this->tileHeight; };
+        int getWidth(){ return this->width; };
+        int getHeight(){ return this->height; };
+        int getTotalWidth(){ return this->width*this->tileWidth; };
+        int getTotalHeight(){ return this->height*this->tileHeight; };
 };
 
 #endif
