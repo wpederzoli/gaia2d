@@ -20,6 +20,8 @@ class Graphics
         void clear();
         void setColor(int r, int g, int b, int a);
         SDL_Renderer* getRenderer() const;
+        int getHeight();
+        int getWidth();
         void present();
 
 };

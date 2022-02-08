@@ -68,6 +68,16 @@ SDL_Renderer* Graphics::getRenderer() const
     return this->renderer;
 };
 
+int Graphics::getHeight()
+{
+    return this->height;
+};
+
+int Graphics::getWidth()
+{
+    return this->width;
+};
+
 void Graphics::present()
 {
     SDL_RenderPresent(this->renderer);

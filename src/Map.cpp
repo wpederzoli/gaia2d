@@ -130,3 +130,90 @@ void Map::generateSolidLayer()
             this->solidLayer[i] = 0;
     }
 };
+
+void Map::draw(int layer, int xOffset, int yOffset, Graphics* g)
+{
+    int* drawLayer = NULL;
+
+    if(layer == 0)
+        drawLayer = solidLayer;
+    else if(layer == 1)
+        drawLayer = layer1;
+    else if(layer == 2)
+        drawLayer = layer2;
+    else if(layer == 3)
+        drawLayer = layer3;
+    else
+        return;
+
+    int startY = yOffset/this->tileHeight;
+    int startX = xOffset/this->tileWidth;
+
+    int rows = (g->getHeight()/this->tileHeight) + 2;
+    int cols = (g->getWidth()/this->tileWidth) + 2;
+
+    for(int y = startY; y < startY+rows; y++)
+    {
+        for(int x = startX; x < startX+cols; x++)
+        {
+            int frame = -1;
+
+            if(x >= 0 && y >= 0 && x < this->width && y < this->height)
+                frame = drawLayer[y*this->width + x]-1;
+
+            if(frame >= 0)
+            {
+                if(layer == 0)
+                    printf("Draw colliders\n");
+                else    
+                    printf("Draw tiles accounting for offset");
+            }
+        }
+    }
+};
+
+void Map::free()
+{
+    if(this->layer1 != NULL)
+    {
+        delete[] this->layer1;
+        this->layer1 = NULL;
+    }
+    if(this->layer2 != NULL)
+    {
+        delete[] this->layer2;
+        this->layer2 = NULL;
+    }
+    if(this->layer3 != NULL)
+    {
+        delete[] this->layer3;
+        this->layer3 = NULL;
+    }
+    if(this->solidLayer != NULL)
+    {
+        delete[] this->solidLayer;
+        this->solidLayer = NULL;
+    }
+
+    this->solidTiles.clear();
+    //this->tiles.free();
+};
+
+bool Map::isTileSolid(int tile)
+{
+    for(unsigned int i = 0; i < this->solidTiles.size(); i++)
+    {
+        if(this->solidTiles[i] == tile)
+            return true;
+    }
+
+    return false;
+};
+
+bool Map::checkSolid(int x, int y)
+{
+    if(x < 0 || x > this->width || y < 0 || y > this->height)
+        return false;
+    
+    return this->solidLayer[y*this->width + x];
+};
