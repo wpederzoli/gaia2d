@@ -196,7 +196,7 @@ void Map::free()
     }
 
     this->solidTiles.clear();
-    //this->tiles.free();
+    this->tiles.free();
 };
 
 bool Map::isTileSolid(int tile)
