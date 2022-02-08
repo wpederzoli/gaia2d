@@ -1,12 +1,11 @@
-#include "Game.h"
+#include "MapDemo.h"
 
 int main(int argc, char const *argv[])
 {
-    Game game;
-    
-    if(!game.initSystem("Custom engine", 960, 480, false) ) 
+    MapDemo game;
+    if(!game.init() )
     {
-        game.kill();
+        game.free();
         return 0;
     }
 

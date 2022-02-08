@@ -46,6 +46,17 @@ bool Image::load(char const filePath[], Graphics* g)
     return success;
 };
 
+bool Image::load(char const filePath[], int frameWidth, int frameHeight, Graphics* g)
+{
+    if(!this->load(filePath, g) )
+        return false;
+    
+    this->posX = frameWidth;
+    this->posY = frameHeight;
+
+    return true;
+};
+
 void Image::setFrame(int x, int y)
 {
     this->posX = x;
@@ -92,4 +103,39 @@ void Image::drawSprite(int sx, int sy, int sw, int sh, int dx, int dy, int dw, i
     SDL_Rect destRect = {dx, dy, dw, dh};
 
     SDL_RenderCopy(g->getRenderer(), this->texture, &sourceRect, &destRect);
+};
+
+void Image::drawSprite(int sx, int sy, int sw, int sh, int scale, Graphics* g)
+{
+    SDL_Rect destRect = {sx*scale, sy*scale, sw*scale, sh*scale};
+    this->drawSprite(sx, sy, sw, sh, destRect.x, destRect.y, destRect.w, destRect.h, g);
+};
+
+void Image::drawSprite(int x, int y, int frame, Graphics* g)
+{
+    SDL_Rect destRect;
+    destRect.x = x;
+    destRect.y = y;
+    destRect.w = posX;
+    destRect.h = posY;
+
+    int columns = width/posX;
+
+    SDL_Rect sourceRect;
+    sourceRect.y = (frame/columns)*posY;
+    sourceRect.x = (frame%columns)*posX;
+    sourceRect.w = posX;
+    sourceRect.h = posY;
+
+    this->drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, g);
+};
+
+void Image::free()
+{
+    SDL_DestroyTexture(this->texture);
+    this->texture = NULL;
+    this->width = 0;
+    this->height = 0;
+    this->posX = 0;
+    this->posY = 0;
 };

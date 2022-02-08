@@ -22,6 +22,16 @@ bool Game::initSystem(char const title[], int width, int height, bool fullscreen
     return true;
 };
 
+Graphics* Game::getGraphics()
+{
+    return &this->graphics;
+}
+
+Input* Game::getInput()
+{
+    return &this->input;
+};
+
 void Game::run()
 {
     while(!this->isDone)
@@ -39,12 +49,8 @@ void Game::run()
         }
         
         this->input.update();
-
-
-        //This is for testing
-        graphics.setColor(255, 255, 255, 255);                
-        graphics.clear();
-        graphics.present();
+        update();
+        draw(getGraphics());
 
         int frameTime = SDL_GetTicks() - frameStart;
         int delay = (1000/this->fps) - frameTime;
@@ -61,4 +67,20 @@ void Game::end()
 void Game::kill()
 {
     SDL_Quit();
+};
+
+bool Game::init()
+{
+    return initSystem("Game", 800, 600, false);
+};
+
+void Game::free()
+{};
+
+void Game::update()
+{};
+
+void Game::draw(Graphics* g)
+{
+    g->clear();
 };
