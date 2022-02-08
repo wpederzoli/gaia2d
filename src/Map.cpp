@@ -36,7 +36,7 @@ bool Map::load(char const mapFile[], char const imageFile[], Graphics* g)
 
     in.close();
     
-    if(!tiles.load(imageFile, g) )
+    if(!tiles.load(imageFile, this->tileWidth, this->tileHeight, g) )
         return false;
 
     return true;
@@ -88,7 +88,7 @@ void Map::loadSolidTiles(std::ifstream* in)
     while(token != NULL)
     {
         solidTiles.push_back(std::atoi(token));
-        strtok(NULL, " ,");
+        token = strtok(NULL, " ,");
     }
 
     delete[] string;
@@ -166,7 +166,7 @@ void Map::draw(int layer, int xOffset, int yOffset, Graphics* g)
                 if(layer == 0)
                     printf("Draw colliders\n");
                 else    
-                    printf("Draw tiles accounting for offset");
+                    tiles.drawSprite(x*tileWidth - xOffset, y*tileHeight - yOffset, frame, g);
             }
         }
     }
