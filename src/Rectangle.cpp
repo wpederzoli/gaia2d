@@ -55,12 +55,12 @@ void Rectangle::setHeight(int height)
 
 void Rectangle::setX2(int x2)
 {
-    this->x = x-this->width+1;
+    this->x = x2-this->width+1;
 };
 
 void Rectangle::setY2(int y2)
 {
-    this->y = y-this->height+1;
+    this->y = y2-this->height+1;
 };
 
 void Rectangle::setCenterX(int x)
@@ -105,12 +105,12 @@ int Rectangle::getY2()
 
 int Rectangle::getCenterX()
 {
-    return this->width/2;
+    return this->x + this->width/2;
 };
 
 int Rectangle::getCenterY()
 {
-    return this->height/2;
+    return this->y + this->height/2;
 };
 
 bool Rectangle::overlaps(Rectangle rect)
