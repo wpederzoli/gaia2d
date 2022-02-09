@@ -86,6 +86,13 @@ void Graphics::present()
 void Graphics::drawRect(int x, int y, int w, int h, int r, int g, int b)
 {
     SDL_Rect rect = {x, y, w, h};
-    SDL_RenderDrawRect(getRenderer(), &rect);
+    SDL_RenderDrawRect(this->getRenderer(), &rect);
     setColor(r, g, b, 255);
-};  
+};
+
+void Graphics::fillRect(int x, int y, int w, int h, int r, int g, int b)
+{
+    SDL_Rect rect = {x, y, w, h};
+    SDL_RenderFillRect(this->getRenderer(), &rect);
+    setColor(r, g, b, 255);
+};
