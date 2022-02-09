@@ -1,8 +1,8 @@
-#include "SceneDemo.h"
+#include "AnimatedDemo.h"
 
 int main(int argc, char const *argv[])
 {
-    SceneDemo game;
+    AnimatedDemo game;
     if(!game.init() )
     {
         game.free();

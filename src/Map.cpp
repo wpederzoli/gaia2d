@@ -19,7 +19,10 @@ bool Map::load(char const mapFile[], char const imageFile[], Graphics* g)
     std::ifstream in(mapFile);
 
     if(!in.good())
+    {
+        printf("Unable to read from file: %s\n", mapFile );
         return false;
+    }
 
     loadDimensions(&in);
     loadSolidTiles(&in);
