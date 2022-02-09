@@ -60,7 +60,7 @@ void MapNode::move(int x, int y)
     if(x < 0)
     {
         if(this->overlapsMap() )
-            this->setX( (this->getX()/this->map->getTileWidth() + 1) * this->map->getTileWidth() );
+            this->setX( ((this->getX()/this->map->getTileWidth()) + 1) * this->map->getTileWidth() );
     }
 
     if(x > 0)
@@ -74,7 +74,7 @@ void MapNode::move(int x, int y)
     if(y < 0)
     {
         if(this->overlapsMap() )
-            this->setY( (this->getY()/this->map->getTileHeight() + 1) * this->map->getTileHeight() );
+            this->setY( ((this->getY()/this->map->getTileHeight()) + 1) * this->map->getTileHeight() );
     }
 
     if(y > 0)
