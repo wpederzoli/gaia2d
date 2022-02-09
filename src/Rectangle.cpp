@@ -2,12 +2,12 @@
 
 Rectangle::Rectangle()
 {
-    set(0, 0, 1, 1);
+    this->set(0, 0, 1, 1);
 };
 
 Rectangle::Rectangle(int x, int y, int width, int height)
 {
-    set(x, y, width, height);
+    this->set(x, y, width, height);
 };
 
 Rectangle::~Rectangle()
