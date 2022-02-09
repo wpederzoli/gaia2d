@@ -19,22 +19,19 @@ bool Map::load(char const mapFile[], char const imageFile[], Graphics* g)
     std::ifstream in(mapFile);
 
     if(!in.good())
-    {
-        printf("Unable to read from file: %s\n", mapFile );
         return false;
-    }
 
     loadDimensions(&in);
     loadSolidTiles(&in);
 
-    this->layer1 = new int[this->width*this->height];
-    this->layer2 = new int[this->width*this->height];
-    this->layer3 = new int[this->width*this->height];
-    this->solidLayer = new int[this->width*this->height];
+    this->layer1 = new int[this->width * this->height];
+    this->layer2 = new int[this->width * this->height];
+    this->layer3 = new int[this->width * this->height];
+    this->solidLayer = new int[this->width * this->height];
 
-    loadLayer(layer1, &in);
-    loadLayer(layer2, &in);
-    loadLayer(layer3, &in);
+    loadLayer(this->layer1, &in);
+    loadLayer(this->layer2, &in);
+    loadLayer(this->layer3, &in);
     generateSolidLayer();
 
     in.close();
@@ -139,13 +136,13 @@ void Map::draw(int layer, int xOffset, int yOffset, Graphics* g)
     int* drawLayer = NULL;
 
     if(layer == 0)
-        drawLayer = solidLayer;
+        drawLayer = this->solidLayer;
     else if(layer == 1)
-        drawLayer = layer1;
+        drawLayer = this->layer1;
     else if(layer == 2)
-        drawLayer = layer2;
+        drawLayer = this->layer2;
     else if(layer == 3)
-        drawLayer = layer3;
+        drawLayer = this->layer3;
     else
         return;
 

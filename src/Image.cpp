@@ -122,8 +122,8 @@ void Image::drawSprite(int x, int y, int frame, Graphics* g)
     int columns = this->width/this->posX;
 
     SDL_Rect sourceRect;
-    sourceRect.x = (frame/columns)*this->posX;
-    sourceRect.y = (frame%columns)*this->posY;
+    sourceRect.x = (frame%columns)*this->posX;
+    sourceRect.y = (frame/columns)*this->posY;
     sourceRect.w = this->posX;
     sourceRect.h = this->posY;
 
