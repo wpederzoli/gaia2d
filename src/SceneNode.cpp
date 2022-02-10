@@ -7,9 +7,6 @@ SceneNode::SceneNode(int id, int x, int y, int width, int height) : Rectangle(x,
     this->removed = false;
 };
 
-SceneNode::~SceneNode()
-{};
-
 void SceneNode::setScene(Scene* s)
 {
     this->scene = s;

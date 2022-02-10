@@ -57,7 +57,7 @@ void Animation::play(Graphics* g)
 
     (*this->image).drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, g);
     
-    if( (ticks - this->lastTick) / 10 >= 100/this->speed )
+    if( (ticks - this->lastTick) / 10 >= (Uint32) 100/this->speed )
     {
         this->lastTick = SDL_GetTicks();
         this->nextFrame();

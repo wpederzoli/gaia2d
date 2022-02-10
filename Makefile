@@ -17,15 +17,15 @@ TARGET = $(BIN_DIR)/$(OUT_NAME)
 OUT_NAME = engine
 
 $(TARGET): $(OBJS)
-	mkdir -p $(BIN_DIR)
-	$(CC) $(FLAGS) $(OBJS) $(LIBRARIES) -o $(TARGET)
+	@mkdir -p $(BIN_DIR)
+	@$(CC) $(FLAGS) $(OBJS) $(LIBRARIES) -o $(TARGET)
 
 $(OBJ_DIR)/%.o : $(SOURCE_DIR)/%.cpp
-	mkdir -p $(OBJ_DIR)
-	$(CC) -c -MD $(FLAGS) $< -o $@
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) -c -MD $(FLAGS) $< -o $@
 
 -include $(OBJ_DIR)/*.d
 
 .PHONY: clean
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR)
+	@rm -rf $(OBJ_DIR) $(BIN_DIR)
