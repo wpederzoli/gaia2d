@@ -44,4 +44,18 @@ void Animator::setAnimation(int id)
     }
 };
 
+void Animator::setGlobalSpeed(int s)
+{
+    std::list<Animation*>::iterator it;
+    for(it = animations.begin(); it != animations.end(); it++)
+    {
+        (*it)->setSpeed(s);
+    }
+};
+
+void Animator::setAnimationSpeed(int s)
+{
+    (*this->active).setSpeed(s);
+};
+
 

@@ -20,6 +20,16 @@ void Player::addAnimation(Image* sprite, int id, int frameWidth, int frameHeight
     this->animator.addAnimation(sprite, id, frameWidth, frameHeight, frameStart, frameEnd);
 };
 
+void Player::setAnimationGlobalSpeed(int s)
+{
+    this->animator.setGlobalSpeed(s);
+};
+
+void Player::setAnimationSpeed(int s)
+{
+    this->animator.setAnimationSpeed(s);
+};
+
 void Player::playAnimation(int animationId)
 {
     this->animator.setAnimation(animationId);

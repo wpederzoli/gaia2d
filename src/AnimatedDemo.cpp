@@ -6,18 +6,17 @@ bool AnimatedDemo::init()
         return false;
     if(!this->map.load("feature-examples/graphics/map.map", "feature-examples/graphics/tiles.png", Game::getGraphics()) )
         return false;
-    if(!this->playerImage.load("feature-examples/graphics/girl-idle-sprite.png", Game::getGraphics()) )
+    if(!this->playerImage.load("feature-examples/graphics/girl-sprite.png", Game::getGraphics()) )
         return false;
 
     this->player = new Player(0, 100, 200, 50, 50, true, &this->map);
-    this->player->addAnimation(&playerImage, 0, 128, 140, 1, 16);
+    this->player->addAnimation(&playerImage, 0, 65, 71, 1, 16);
+    this->player->addAnimation(&playerImage, 1, 65, 71, 17, 36);
     this->player->playAnimation(0);
-    // this->animator.addAnimation(&playerImage, 0, 128, 140, 1, 16);
-    // this->animator.setAnimation(0);
+    this->player->setAnimationGlobalSpeed(27);
 
-    // this->camera.set(0, 0, 800, 600);
-    // this->player = new SceneNode(0, 10, 10, 50, 50);
-    // this->scene.addNode(this->player);
+    this->camera.set(0, 0, 800, 600);
+    this->scene.addNode(this->player);
 
     return true;
 };
@@ -31,7 +30,14 @@ void AnimatedDemo::update()
 {
     Input *in = Game::getInput();
     if(in->keyDown(SDL_SCANCODE_RIGHT) )
+    {
         this->player->move(this->player->getSpeed(), 0);
+        this->player->playAnimation(1);
+    }
+    else
+    {
+        this->player->playAnimation(0);
+    }
     if(in->keyDown(SDL_SCANCODE_LEFT))
         this->player->move(-this->player->getSpeed(), 0);
     if(in->keyDown(SDL_SCANCODE_UP) )

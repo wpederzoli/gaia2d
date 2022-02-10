@@ -13,7 +13,7 @@ class Animation
         int start;
         int end;
         int currentFrame = 0;
-        int speed = 27;
+        int speed = 10;
 
         int posX;
         int posY;
@@ -32,6 +32,7 @@ class Animation
 
         void setFrame(int frame);
         void setPosition(int x, int y);
+        void setSpeed(int s){ this->speed = s; };
 
         int getId(){ return this->id; };
 };

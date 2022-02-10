@@ -5,7 +5,7 @@ int main(int argc, char* argv[])
     AnimatedDemo game;
     if(!game.init() )
     {
-        game.kill();
+        game.free();
         return 0;
     }
 

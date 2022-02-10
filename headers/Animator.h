@@ -28,6 +28,8 @@ class Animator
         void play(int x, int y, Graphics* g);
 
         void setAnimationPosition(int x, int y);
+        void setGlobalSpeed(int s);
+        void setAnimationSpeed(int s);
 };
 
 #endif

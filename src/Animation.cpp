@@ -22,7 +22,7 @@ Animation::Animation(Image* source, int id, int frameSizeX, int frameSizeY, int 
     this->frameSizeY = frameSizeY;
     this->start = start;
     this->end = end;
-    this->currentFrame = 0;
+    this->currentFrame = start;
     this->lastTick = SDL_GetTicks();
 };
 
@@ -54,8 +54,8 @@ void Animation::play(Graphics* g)
     SDL_Rect destRect;
     destRect.x = this->posX;
     destRect.y = this->posY;
-    destRect.w = this->frameSizeX/2;
-    destRect.h = this->frameSizeY/2;
+    destRect.w = this->frameSizeX;
+    destRect.h = this->frameSizeY;
 
     (*this->image).drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, g);
     
@@ -77,7 +77,7 @@ void Animation::setPosition(int x, int y)
 void Animation::nextFrame()
 {
     if(this->currentFrame >= this->end - 1)
-        this->currentFrame = 0;   
+        this->currentFrame = this->start;   
     else
         this->currentFrame++;
 }
