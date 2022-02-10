@@ -19,6 +19,12 @@ void Animator::play(Graphics* g)
     (*this->active).play(g);
 };
 
+void Animator::play(int x, int y, Graphics* g)
+{
+    (*this->active).setPosition(x, y);
+    (*this->active).play(g);
+};
+
 void Animator::addAnimation(Image* sprite, int id, int sizeX, int sizeY, int frameStart, int frameEnd)
 {
     Animation* animation = new Animation(sprite, id, sizeX, sizeY, frameStart, frameEnd);

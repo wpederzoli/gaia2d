@@ -9,6 +9,8 @@ Animation::Animation()
     this->start = 0;
     this->end = 0;
     this->currentFrame = 0;
+    this->posX = 0;
+    this->posY = 0;
     this->lastTick = SDL_GetTicks();
 };
 
@@ -50,8 +52,8 @@ void Animation::play(Graphics* g)
     sourceRect.h = this->frameSizeY;
 
     SDL_Rect destRect;
-    destRect.x = 100;
-    destRect.y = 200;
+    destRect.x = this->posX;
+    destRect.y = this->posY;
     destRect.w = this->frameSizeX/2;
     destRect.h = this->frameSizeY/2;
 
@@ -65,6 +67,12 @@ void Animation::play(Graphics* g)
 };
 
 void Animation::setFrame(int frame){ this->currentFrame = frame; };
+
+void Animation::setPosition(int x, int y)
+{
+    this->posX = x;
+    this->posY = y;
+};
 
 void Animation::nextFrame()
 {

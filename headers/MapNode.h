@@ -15,9 +15,11 @@ class MapNode : public SceneNode
         ~MapNode();
 
         virtual void draw(Rectangle* view, Graphics* g);
+        virtual void move(int x, int y);
 
         bool overlapsMap();
-        void move(int x, int y);
+        
+        void setCollision(bool collide){ this->solid = collide; };
 };
 
 #endif

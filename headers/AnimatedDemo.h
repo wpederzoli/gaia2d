@@ -3,13 +3,11 @@
 
 #include "Game.h"
 #include "Map.h"
-#include "Graphics.h"
 #include "Rectangle.h"
 #include "Image.h"
 #include "Scene.h"
-#include "SceneNode.h"
 
-#include "Animator.h"
+#include "Player.h"
 
 class AnimatedDemo : public Game
 {
@@ -17,9 +15,8 @@ class AnimatedDemo : public Game
         Map map;
         Image playerImage;
         Scene scene;
-        SceneNode* player;
+        Player* player;
         Rectangle camera;
-        Animator animator;
     
     public:
         virtual bool init();

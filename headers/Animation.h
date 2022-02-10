@@ -14,6 +14,9 @@ class Animation
         int end;
         int currentFrame = 0;
         int speed = 27;
+
+        int posX;
+        int posY;
     
         Uint32 lastTick;
 
@@ -26,7 +29,10 @@ class Animation
         ~Animation();
 
         void play(Graphics* g);
+
         void setFrame(int frame);
+        void setPosition(int x, int y);
+
         int getId(){ return this->id; };
 };
 

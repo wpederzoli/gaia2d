@@ -1,15 +1,15 @@
 #include "AnimatedDemo.h"
 
-int main(int argc, char const *argv[])
+int main(int argc, char* argv[])
 {
     AnimatedDemo game;
     if(!game.init() )
     {
-        game.free();
+        game.kill();
         return 0;
     }
 
     game.run();
 
     return 0;
-};
+}
