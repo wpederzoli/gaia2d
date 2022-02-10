@@ -49,14 +49,9 @@ void AnimatedDemo::update()
 
 void AnimatedDemo::draw(Graphics* g)
 {
-    g->clear();
-    
     this->map.draw(1, 0, 0, g);
     this->map.draw(2, 0, 0, g);
     this->map.draw(3, 0, 0, g);
     this->map.draw(0, 0, 0, g);
-    this->player->draw(&this->camera, g);
     this->scene.draw(&this->camera, g);
-    
-    g->present();
 };
