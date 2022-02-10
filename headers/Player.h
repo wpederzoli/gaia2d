@@ -22,6 +22,8 @@ class Player : public MapNode
 
         void addAnimation(Image* sprite, int id, int frameWidth, int frameHeight, int frameStart, int frameEnd);
         void playAnimation(int animationId);
+
+        int getSpeed(){ return this->moveSpeed; };
 };
 
 #endif

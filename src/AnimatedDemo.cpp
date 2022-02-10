@@ -30,8 +30,14 @@ void AnimatedDemo::free()
 void AnimatedDemo::update()
 {
     Input *in = Game::getInput();
-    // if(in->keyDown(SDL_SCANCODE_RIGHT) )
-    //     player.move(player.getSpeed() );
+    if(in->keyDown(SDL_SCANCODE_RIGHT) )
+        this->player->move(this->player->getSpeed(), 0);
+    if(in->keyDown(SDL_SCANCODE_LEFT))
+        this->player->move(-this->player->getSpeed(), 0);
+    if(in->keyDown(SDL_SCANCODE_UP) )
+        this->player->move(0, -this->player->getSpeed() );
+    if(in->keyDown(SDL_SCANCODE_DOWN) )
+        this->player->move(0, this->player->getSpeed() );
 };
 
 
