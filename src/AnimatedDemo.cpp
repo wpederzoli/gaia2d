@@ -4,7 +4,7 @@ bool AnimatedDemo::init()
 {
     if(!this->initSystem("Animation test", 800, 600, false) )
         return false;
-    if(!this->map.load("feature-examples/graphics/map.map", "feature-examples/graphics/tiles.bmp", Game::getGraphics()) )
+    if(!this->map.load("feature-examples/graphics/map.map", "feature-examples/graphics/tiles.png", Game::getGraphics()) )
         return false;
     if(!this->playerImage.load("feature-examples/graphics/girl-idle-sprite.png", Game::getGraphics()) )
         return false;
@@ -36,8 +36,8 @@ void AnimatedDemo::draw(Graphics* g)
     g->clear();
     
     this->map.draw(1, 0, 0, g);
-    this->map.draw(2, 10, 20, g);
-    this->map.draw(3, 30, 60, g);
+    this->map.draw(2, 0, 0, g);
+    this->map.draw(3, 0, 0, g);
     this->map.draw(0, 0, 0, g);
     animator.play(g);
     this->scene.draw(&this->camera, g);

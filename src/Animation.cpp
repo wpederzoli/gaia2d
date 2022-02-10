@@ -40,9 +40,6 @@ bool Animation::resetPosition()
 void Animation::play(Graphics* g)
 {
     Uint32 ticks = SDL_GetTicks();
-
-    // if(this->resetPosition() )
-    //     this->setFrame(0);
     
     int framesPerRow = (*this->image).getWidth() / this->frameSizeX;
 
@@ -53,10 +50,10 @@ void Animation::play(Graphics* g)
     sourceRect.h = this->frameSizeY;
 
     SDL_Rect destRect;
-    destRect.x = 0;
-    destRect.y = 0;
-    destRect.w = this->frameSizeX;
-    destRect.h = this->frameSizeY;
+    destRect.x = 100;
+    destRect.y = 200;
+    destRect.w = this->frameSizeX/2;
+    destRect.h = this->frameSizeY/2;
 
     (*this->image).drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, g);
     
@@ -71,7 +68,6 @@ void Animation::setFrame(int frame){ this->currentFrame = frame; };
 
 void Animation::nextFrame()
 {
-    printf("this is current frame: %i\n", this->currentFrame);
     if(this->currentFrame >= this->end - 1)
         this->currentFrame = 0;   
     else
