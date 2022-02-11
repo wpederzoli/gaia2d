@@ -94,10 +94,7 @@ void Animation::setPosition(int x, int y)
 void Animation::nextFrame()
 {
     if(this->currentFrame >= this->end - 1)
-    {
-        if(this->loop)
-            this->currentFrame = this->start;
-    }
+        this->currentFrame = this->loop ? this->currentFrame = this->start : this->end - 1;
     else
         this->currentFrame++;
 }
