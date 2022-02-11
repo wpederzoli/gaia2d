@@ -34,6 +34,11 @@ void AnimatedDemo::update()
         this->player->move(this->player->getSpeed(), 0);
         this->player->playAnimation(1);
     }
+    else if(in->keyDown(SDL_SCANCODE_LEFT) )
+    {
+        this->player->move(-this->player->getSpeed(), 0);
+        this->player->playAnimation(1, true);
+    }
     else
     {
         this->player->playAnimation(0);

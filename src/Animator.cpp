@@ -39,9 +39,16 @@ void Animator::setAnimation(int id)
         if((*it)->getId() == id)
         {
             this->setActive(*it);
+            (*it)->flip(false);
             break;
         }
     }
+};
+
+void Animator::setAnimation(int id, bool flip)
+{
+    this->setAnimation(id);
+    (*this->active).flip(flip);
 };
 
 void Animator::setGlobalSpeed(int s)
@@ -57,5 +64,6 @@ void Animator::setAnimationSpeed(int s)
 {
     (*this->active).setSpeed(s);
 };
+
 
 

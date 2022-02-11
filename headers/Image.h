@@ -27,6 +27,7 @@ class Image
         void drawSprite(int sx, int sy, int sw, int sh, int dx, int dy, int dw, int dh, Graphics* g);
         void drawSprite(int sx, int sy, int sw, int sh, int scale, Graphics* g);
         void drawSprite(int x, int y, int frame, Graphics* g);
+        void drawSprite(int sx, int sy, int sw, int sh,  int dx, int dy, int dw, int dh, bool flip, Graphics* g);
 
         int getFrameX(){ return this->posX; };
         int getFrameY(){ return this->posY; };

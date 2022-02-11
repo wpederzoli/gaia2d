@@ -21,7 +21,10 @@ class Player : public MapNode
         void draw(Rectangle* view, Graphics* g);
 
         void addAnimation(Image* sprite, int id, int frameWidth, int frameHeight, int frameStart, int frameEnd);
+        
         void playAnimation(int animationId);
+        void playAnimation(int animationId, bool flip);
+
         void setAnimationGlobalSpeed(int s);
         void setAnimationSpeed(int s);
 

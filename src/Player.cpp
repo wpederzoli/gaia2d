@@ -34,3 +34,8 @@ void Player::playAnimation(int animationId)
 {
     this->animator.setAnimation(animationId);
 };
+
+void Player::playAnimation(int animationId, bool flip)
+{
+    this->animator.setAnimation(animationId, flip);
+};

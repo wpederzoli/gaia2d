@@ -14,6 +14,7 @@ class Animation
         int end;
         int currentFrame = 0;
         int speed = 10;
+        bool flipHorizontal = false;
 
         int posX;
         int posY;
@@ -33,6 +34,7 @@ class Animation
         void setFrame(int frame);
         void setPosition(int x, int y);
         void setSpeed(int s){ this->speed = s; };
+        void flip(bool flip){ this->flipHorizontal = flip; };
 
         int getId(){ return this->id; };
 };

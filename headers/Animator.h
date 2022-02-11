@@ -23,6 +23,7 @@ class Animator
 
         void addAnimation(Image* sprite, int id, int sizeX, int sizeY, int frameStart,  int frameEnd);
         void setAnimation(int id);
+        void setAnimation(int id, bool flip);
         
         void play(Graphics* g);
         void play(int x, int y, Graphics* g);

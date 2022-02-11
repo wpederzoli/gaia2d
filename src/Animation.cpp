@@ -11,6 +11,7 @@ Animation::Animation()
     this->currentFrame = 0;
     this->posX = 0;
     this->posY = 0;
+    this->flipHorizontal = false;
     this->lastTick = SDL_GetTicks();
 };
 
@@ -57,7 +58,10 @@ void Animation::play(Graphics* g)
     destRect.w = this->frameSizeX;
     destRect.h = this->frameSizeY;
 
-    (*this->image).drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, g);
+    if(this->flipHorizontal)
+        (*this->image).drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, true, g);
+    else
+        (*this->image).drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, g);
     
     if( (ticks - this->lastTick) / 10 >= (Uint32) 100/this->speed )
     {
