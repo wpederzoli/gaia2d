@@ -29,26 +29,32 @@ void AnimatedDemo::free()
 void AnimatedDemo::update()
 {
     Input *in = Game::getInput();
+    this->player->playAnimation(0);
+    
     if(in->keyDown(SDL_SCANCODE_RIGHT) )
     {
         this->player->move(this->player->getSpeed(), 0);
         this->player->playAnimation(1);
     }
-    else if(in->keyDown(SDL_SCANCODE_LEFT) )
+    if(in->keyDown(SDL_SCANCODE_LEFT) )
     {
         this->player->move(-this->player->getSpeed(), 0);
         this->player->playAnimation(1, true);
     }
-    else
-    {
-        this->player->playAnimation(0);
-    }
-    if(in->keyDown(SDL_SCANCODE_LEFT))
-        this->player->move(-this->player->getSpeed(), 0);
     if(in->keyDown(SDL_SCANCODE_UP) )
+    {
         this->player->move(0, -this->player->getSpeed() );
+        int animId = this->player->getAnimationId();
+        if(animId == 0)
+            this->player->playAnimation(1);
+        if(animId == 1 && this->player->isAnimationFlipped() )
+            this->player->playAnimation(animId, true);
+    }
     if(in->keyDown(SDL_SCANCODE_DOWN) )
+    {
         this->player->move(0, this->player->getSpeed() );
+        this->player->playAnimationOnce(1);
+    }
 };
 
 

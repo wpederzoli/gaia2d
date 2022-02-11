@@ -24,9 +24,12 @@ class Player : public MapNode
         
         void playAnimation(int animationId);
         void playAnimation(int animationId, bool flip);
-
+        void playAnimationOnce(int animationId);
         void setAnimationGlobalSpeed(int s);
         void setAnimationSpeed(int s);
+        int getAnimationId();
+        bool isAnimationFlipped();
+
 
         int getSpeed(){ return this->moveSpeed; };
 };

@@ -12,6 +12,7 @@ Animation::Animation()
     this->posX = 0;
     this->posY = 0;
     this->flipHorizontal = false;
+    this->loop = true;
     this->lastTick = SDL_GetTicks();
 };
 
@@ -24,6 +25,8 @@ Animation::Animation(Image* source, int id, int frameSizeX, int frameSizeY, int 
     this->start = start;
     this->end = end;
     this->currentFrame = start;
+    this->flipHorizontal = false;
+    this->loop = true;
     this->lastTick = SDL_GetTicks();
 };
 
@@ -81,7 +84,10 @@ void Animation::setPosition(int x, int y)
 void Animation::nextFrame()
 {
     if(this->currentFrame >= this->end - 1)
-        this->currentFrame = this->start;   
+    {
+        if(this->loop)
+            this->currentFrame = this->start;
+    }
     else
         this->currentFrame++;
 }

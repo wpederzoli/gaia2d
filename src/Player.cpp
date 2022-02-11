@@ -39,3 +39,15 @@ void Player::playAnimation(int animationId, bool flip)
 {
     this->animator.setAnimation(animationId, flip);
 };
+
+void Player::playAnimationOnce(int animationId)
+{
+    this->animator.setAnimation(animationId, false, true);
+};
+
+bool Player::isAnimationFlipped(){ return (*this->animator.getActiveAnimation()).isFlipped(); };
+
+int Player::getAnimationId()
+{
+    return (*this->animator.getActiveAnimation()).getId();
+};
