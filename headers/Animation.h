@@ -8,6 +8,8 @@ class Animation
     private:
         Image* image;
         int id;
+        int width;
+        int height;
         int frameSizeX;
         int frameSizeY;
         int start;
@@ -33,6 +35,7 @@ class Animation
         void play(Graphics* g);
 
         void setFrame(int frame);
+        void setDimensions(int width, int height);
         void setPosition(int x, int y);
         void setSpeed(int s){ this->speed = s; };
         void setLoop(bool loop){ this->loop = loop; }; 

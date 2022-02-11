@@ -4,6 +4,8 @@ Animation::Animation()
 {
     this->image = NULL;
     this->id = 0;
+    this->width = 0;
+    this->height = 0;
     this->frameSizeX = 0;
     this->frameSizeY = 0;
     this->start = 0;
@@ -20,6 +22,8 @@ Animation::Animation(Image* source, int id, int frameSizeX, int frameSizeY, int 
 {
     this->image = source;
     this->id = id;
+    this->width = frameSizeX;
+    this->height = frameSizeY;
     this->frameSizeX = frameSizeX;
     this->frameSizeY = frameSizeY;
     this->start = start;
@@ -58,8 +62,8 @@ void Animation::play(Graphics* g)
     SDL_Rect destRect;
     destRect.x = this->posX;
     destRect.y = this->posY;
-    destRect.w = this->frameSizeX;
-    destRect.h = this->frameSizeY;
+    destRect.w = this->width;
+    destRect.h = this->height;
 
     if(this->flipHorizontal)
         (*this->image).drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, true, g);
@@ -74,6 +78,12 @@ void Animation::play(Graphics* g)
 };
 
 void Animation::setFrame(int frame){ this->currentFrame = frame; };
+
+void Animation::setDimensions(int width, int height)
+{
+    this->width = width;
+    this->height = height;
+}
 
 void Animation::setPosition(int x, int y)
 {

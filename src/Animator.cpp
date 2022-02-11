@@ -57,7 +57,7 @@ void Animator::setAnimation(int id, bool flip, bool playOnce)
     this->setAnimation(id, flip);
     (*this->active).setLoop(!playOnce);
 
-}
+};
 
 void Animator::setGlobalSpeed(int s)
 {

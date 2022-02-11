@@ -28,8 +28,7 @@ class Animator
         
         void play(Graphics* g);
         void play(int x, int y, Graphics* g);
-
-        void setAnimationPosition(int x, int y);
+        
         void setGlobalSpeed(int s);
         void setAnimationSpeed(int s);
         Animation* getActiveAnimation(){ return this->active; };

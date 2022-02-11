@@ -33,6 +33,7 @@ void Player::setAnimationSpeed(int s)
 void Player::playAnimation(int animationId)
 {
     this->animator.setAnimation(animationId);
+    (*this->animator.getActiveAnimation() ).setDimensions(this->getWidth(), this->getHeight() );
 };
 
 void Player::playAnimation(int animationId, bool flip)
@@ -49,5 +50,5 @@ bool Player::isAnimationFlipped(){ return (*this->animator.getActiveAnimation())
 
 int Player::getAnimationId()
 {
-    return (*this->animator.getActiveAnimation()).getId();
+    return (*this->animator.getActiveAnimation() ).getId();
 };
