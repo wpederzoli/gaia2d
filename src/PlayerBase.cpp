@@ -2,12 +2,19 @@
 
 PlayerBase::PlayerBase()
 {
-    this->sprite = NULL;
+    this->image = NULL;
+    this->x = 0;
+    this->y = 0;
 };
 
 PlayerBase::~PlayerBase(){};
 
-void PlayerBase::create(Image* sprite)
+void PlayerBase::create(Image* image)
 {
-    this->sprite = sprite;
+    this->image = image;
+};
+
+void PlayerBase::draw(Graphics* g)
+{
+    this->image->draw(this->x, this->y, g);
 };

@@ -18,7 +18,7 @@ class PlayerDemo : public Game
         virtual bool init();
         // virtual void free();
         // virtual void update();
-        // virtual void draw(Graphics* g);
+        virtual void draw(Graphics* g);
 };
 
 #endif
