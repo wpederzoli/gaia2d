@@ -7,11 +7,13 @@ BIN_DIR = ./bin
 FLAGS = -std=$(CPPVERSION) -I$(HEADERS_DIR) -Wall
 LIBRARIES = -lSDL2 -lSDL2_image -lSDL2_mixer
 
+ADD_OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/PlayerDemo.o $(OBJ_DIR)/PlayerBase.o
+
 OBJS = $(OBJ_DIR)/Animation.o $(OBJ_DIR)/Animator.o $(OBJ_DIR)/Audio.o \
 	$(OBJ_DIR)/Game.o $(OBJ_DIR)/GameState.o $(OBJ_DIR)/Graphics.o $(OBJ_DIR)/Image.o \
 	$(OBJ_DIR)/Input.o $(OBJ_DIR)/Map.o $(OBJ_DIR)/MapNode.o $(OBJ_DIR)/Rectangle.o \
-	$(OBJ_DIR)/Scene.o $(OBJ_DIR)/SceneNode.o $(OBJ_DIR)/StateManager.o $(OBJ_DIR)/main.o \
-	$(OBJ_DIR)/AnimatedDemo.o $(OBJ_DIR)/Player.o
+	$(OBJ_DIR)/Scene.o $(OBJ_DIR)/SceneNode.o $(OBJ_DIR)/StateManager.o \
+	$(ADD_OBJ)
 
 TARGET = $(BIN_DIR)/$(OUT_NAME)
 OUT_NAME = engine

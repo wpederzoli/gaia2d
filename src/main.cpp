@@ -1,8 +1,8 @@
-#include "AnimatedDemo.h"
+#include "PlayerDemo.h"
 
 int main(int argc, char* argv[])
 {
-    AnimatedDemo game;
+    PlayerDemo game;
     if(!game.init() )
     {
         game.free();
@@ -10,6 +10,5 @@ int main(int argc, char* argv[])
     }
 
     game.run();
-
     return 0;
 }
