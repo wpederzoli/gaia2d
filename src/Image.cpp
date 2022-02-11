@@ -116,18 +116,31 @@ void Image::drawSprite(int x, int y, int frame, Graphics* g)
     SDL_Rect destRect;
     destRect.x = x;
     destRect.y = y;
-    destRect.w = posX;
-    destRect.h = posY;
+    destRect.w = this->posX;
+    destRect.h = this->posY;
 
-    int columns = width/posX;
+    int columns = this->width/this->posX;
 
     SDL_Rect sourceRect;
-    sourceRect.y = (frame/columns)*posY;
-    sourceRect.x = (frame%columns)*posX;
-    sourceRect.w = posX;
-    sourceRect.h = posY;
+    sourceRect.x = (frame%columns)*this->posX;
+    sourceRect.y = (frame/columns)*this->posY;
+    sourceRect.w = this->posX;
+    sourceRect.h = this->posY;
 
     this->drawSprite(sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, destRect.x, destRect.y, destRect.w, destRect.h, g);
+};
+
+void Image::drawSprite(int sx, int sy, int sw, int sh, int dx, int dy, int dw, int dh, bool flip, Graphics* g)
+{   
+    if(!flip)
+        this->drawSprite(sx, sy, sw, sh, dx, dy, dw, dh, g);
+    else
+    {
+        SDL_Rect srcRect = {sx, sy, sw, sh};
+        SDL_Rect destRect = {dx, dy, dw, dh};
+
+        SDL_RenderCopyEx(g->getRenderer(), this->texture, &srcRect, &destRect, 0.0, NULL, SDL_FLIP_HORIZONTAL);
+    }
 };
 
 void Image::free()

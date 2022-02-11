@@ -38,6 +38,8 @@ void Game::run()
     {
         unsigned int frameStart = SDL_GetTicks();
         
+        this->getGraphics()->clear();
+
         SDL_Event event;
         while(SDL_PollEvent(&event) )
         {
@@ -52,6 +54,8 @@ void Game::run()
         update();
         draw(getGraphics());
 
+        this->getGraphics()->present();
+        
         int frameTime = SDL_GetTicks() - frameStart;
         int delay = (1000/this->fps) - frameTime;
 
