@@ -3,20 +3,20 @@
 
 #include "Image.h"
 #include "Graphics.h"
+#include "SceneNode.h"
 
-class PlayerBase
+class PlayerBase : public SceneNode
 {
     private:
         Image* image;
-        int x;
-        int y;
+        int id;
 
     public:
         PlayerBase();
         ~PlayerBase();
-
+        
         virtual void create(Image* image);
-        virtual void draw(Graphics* g);
+        virtual void draw(Rectangle* view, Graphics* g) override;
 };
 
 #endif

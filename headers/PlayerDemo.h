@@ -4,21 +4,25 @@
 #include "Game.h"
 #include "Image.h"
 #include "PlayerBase.h"
+#include "Scene.h"
+#include "Rectangle.h"
 
 class PlayerDemo : public Game
 {
     private:
         Image playerImage;
         PlayerBase player;
-    
+        Rectangle camera;
+        Scene* scene; 
+
     public:
         PlayerDemo();
         ~PlayerDemo();
 
-        virtual bool init();
+        bool init() override;
         // virtual void free();
         // virtual void update();
-        virtual void draw(Graphics* g);
+        void draw(Graphics* g) override;
 };
 
 #endif

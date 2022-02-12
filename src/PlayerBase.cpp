@@ -1,10 +1,8 @@
 #include "PlayerBase.h"
 
-PlayerBase::PlayerBase()
+PlayerBase::PlayerBase() : SceneNode(0, 0, 0, 0, 0)
 {
     this->image = NULL;
-    this->x = 0;
-    this->y = 0;
 };
 
 PlayerBase::~PlayerBase(){};
@@ -14,7 +12,12 @@ void PlayerBase::create(Image* image)
     this->image = image;
 };
 
-void PlayerBase::draw(Graphics* g)
+void PlayerBase::draw(Rectangle* view, Graphics* g)
 {
-    this->image->draw(this->x, this->y, g);
+    if(view->overlaps(*this) )
+    {
+        this->image->drawSprite(this->image->getFrameX(), this->image->getFrameY(), this->image->getWidth(), this->image->getHeight(),
+                this->getX(), this->getY(), this->getWidth(), this->getHeight(), g);
+    }
+
 };

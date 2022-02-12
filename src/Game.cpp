@@ -45,14 +45,14 @@ void Game::run()
         {
             if(event.type == SDL_QUIT)
             {
-                isDone = true;
+                this->isDone = true;
                 break;
             }
         }
         
         this->input.update();
-        update();
-        draw(getGraphics());
+        this->update();
+        this->draw(this->getGraphics() );
 
         this->getGraphics()->present();
         

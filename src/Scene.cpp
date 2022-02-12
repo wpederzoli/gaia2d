@@ -9,7 +9,7 @@ Scene::~Scene()
 void Scene::addNode(SceneNode* node)
 {
     node->setScene(this);
-    nodes.push_back(node);
+    this->nodes.push_back(node);
 };
 
 void Scene::removeNode(SceneNode* node)
@@ -17,14 +17,14 @@ void Scene::removeNode(SceneNode* node)
     if(node != NULL)
     {
         SceneNode* n = node;
-        nodes.remove(node);
+        this->nodes.remove(node);
         delete n;
     }
     else
     {
-        while(!nodes.empty() )
+        while(!this->nodes.empty() )
         {
-            removeNode(*nodes.begin() );
+            removeNode(*this->nodes.begin() );
         }
     }
 };

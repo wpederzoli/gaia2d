@@ -24,8 +24,8 @@ class Graphics
         int getWidth();
         void present();
 
-        void drawRect(int x, int y, int w, int h, int r, int b, int g);
-        void fillRect(int x, int y, int w, int h, int r, int b, int g);
+        void drawRect(int x, int y, int w, int h, int r, int g, int b);
+        void fillRect(int x, int y, int w, int h, int r, int g, int b);
 };
 
 #endif

@@ -119,9 +119,9 @@ bool Rectangle::overlaps(Rectangle rect)
         return false;
     if(this->getY() > rect.getY2() )
         return false;
-    if(rect.getX2() > this->getX() )
+    if(rect.getX2() < this->getX() )
         return false;
-    if(rect.getY2() > this->getY() )
+    if(rect.getY2() < this->getY() )
         return false;
 
     return true;
