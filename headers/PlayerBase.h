@@ -15,7 +15,8 @@ class PlayerBase : public SceneNode
         PlayerBase();
         ~PlayerBase();
         
-        virtual void create(Image* image);
+        virtual void create(int id, Image* image);
+        virtual void create(int id, Image* image, int width, int height);
         virtual void draw(Rectangle* view, Graphics* g) override;
 };
 

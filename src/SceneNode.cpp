@@ -12,6 +12,14 @@ void SceneNode::setScene(Scene* s)
     this->scene = s;
 };
 
+void SceneNode::setId(int id)
+{
+    //TODO: set unique ID
+    this->ID = id;
+};
+
+int SceneNode::getId() { return this->ID; };
+
 Scene* SceneNode::getScene()
 {
     return this->scene;

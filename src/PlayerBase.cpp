@@ -7,9 +7,18 @@ PlayerBase::PlayerBase() : SceneNode(0, 0, 0, 0, 0)
 
 PlayerBase::~PlayerBase(){};
 
-void PlayerBase::create(Image* image)
+void PlayerBase::create(int id, Image* image)
 {
+    this->setId(id);
     this->image = image;
+};
+
+void PlayerBase::create(int id, Image* image, int width, int height)
+{
+    this->setId(id);
+    this->image = image;
+    this->setWidth(width);
+    this->setHeight(height);
 };
 
 void PlayerBase::draw(Rectangle* view, Graphics* g)

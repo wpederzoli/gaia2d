@@ -15,7 +15,7 @@ bool PlayerDemo::init()
         return false;
 
     this->camera.set(0, 0, 100, 200);
-    this->player.create(&this->playerImage);
+    this->player.create(0, &this->playerImage, 100, 200);
     this->scene = new Scene();
     this->scene->addNode(&player);
 

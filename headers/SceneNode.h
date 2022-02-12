@@ -19,6 +19,9 @@ class SceneNode : public Rectangle
         virtual ~SceneNode() = default;
 
         void setScene(Scene* s);
+        void setId(int id);
+        
+        int getId();
         Scene* getScene();
 
         virtual void update();
