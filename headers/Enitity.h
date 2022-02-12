@@ -15,6 +15,8 @@ class Entity : public SceneNode
         ~Entity();
 
         void setImage(Image* image);
+
+        virtual void draw(Rectangle* view, Graphics* g) override;
 };
 
 #endif
