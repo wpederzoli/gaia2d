@@ -21,7 +21,7 @@ class Animator
         Animator();
         ~Animator();
 
-        void addAnimation(Image* sprite, int id, int sizeX, int sizeY, int frameStart,  int frameEnd);
+        void addAnimation(Image* sprite, int id, int sizeX, int sizeY, int frameStart,  int frameEnd, bool active = false);
         void setAnimation(int id);
         void setAnimation(int id, bool flip);
         void setAnimation(int id, bool flip, bool playOnce);

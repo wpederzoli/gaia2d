@@ -1,36 +1,46 @@
 #include "EntityBuilder.h"
 
-EntityBuilder::EntityBuilder(int entityId)
+EntityBuilder::EntityBuilder()
 {
-    this->entity = new Entity(entityId);
+    m_entity = NULL;
 };
 
 EntityBuilder::~EntityBuilder(){};
 
-EntityBuilder EntityBuilder::setSingleImage(Image* image)
-{
-    this->entity->setImage(image);
-    return *this;
+EntityBuilder* EntityBuilder::id(int id)
+{ 
+    m_id = id;
+    return this; 
 };
 
-EntityBuilder EntityBuilder::setPosition(int x, int y)
+EntityBuilder* EntityBuilder::image(Image* image)
 {
-    this->entity->setX(x);
-    this->entity->setY(y);
-
-    return *this;
+    m_image = image;
+    return this;
 };
 
-EntityBuilder EntityBuilder::setDimensions(int width, int height)
+EntityBuilder* EntityBuilder::position(int x, int y)
 {
-    this->entity->setWidth(width);
-    this->entity->setHeight(height);
+    m_x = x;
+    m_y = y;
+    return this;
+};
 
-    return *this;
+EntityBuilder* EntityBuilder::dimensions(int w, int h)
+{
+    m_width = w;
+    m_heigth = h;
 };
 
 Entity* EntityBuilder::build()
 {
-    return this->entity;
+    m_entity = new Entity(m_id);
+    m_entity->setPosition(m_x, m_y);
+    m_entity->setSize(m_width, m_heigth);
+    m_entity->setImage(m_image);
+
+    return m_entity;
 };
+
+
 

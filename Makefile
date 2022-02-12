@@ -7,7 +7,8 @@ BIN_DIR = ./bin
 FLAGS = -std=$(CPPVERSION) -I$(HEADERS_DIR) -Wall
 LIBRARIES = -lSDL2 -lSDL2_image -lSDL2_mixer
 
-ADD_OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/PlayerDemo.o $(OBJ_DIR)/PlayerBase.o $(OBJ_DIR)/EntityBuilder.o $(OBJ_DIR)/Entity.o
+ADD_OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/PlayerDemo.o $(OBJ_DIR)/PlayerBase.o $(OBJ_DIR)/EntityBuilder.o $(OBJ_DIR)/Entity.o \
+		$(OBJ_DIR)/AnimatedEntity.o $(OBJ_DIR)/AnimatedEntityBuilder.o
 
 OBJS = $(OBJ_DIR)/Animation.o $(OBJ_DIR)/Animator.o $(OBJ_DIR)/Audio.o \
 	$(OBJ_DIR)/Game.o $(OBJ_DIR)/GameState.o $(OBJ_DIR)/Graphics.o $(OBJ_DIR)/Image.o \

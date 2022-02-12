@@ -2,22 +2,29 @@
 #define ENTITYBUILDER_H
 
 #include <stdio.h>
-#include "Enitity.h"
+#include "Entity.h"
 
 class EntityBuilder
 {
     private:
-        Entity* entity;
+        Entity* m_entity;
+        int m_id;
+        Image* m_image;
+        int m_x;
+        int m_y;
+        int m_width;
+        int m_heigth;
     
     public:
-        EntityBuilder(int entityId);
+        EntityBuilder();
         ~EntityBuilder();
 
-        EntityBuilder setSingleImage(Image* image);
-        EntityBuilder setPosition(int x, int y);
-        EntityBuilder setDimensions(int width, int height);
+        EntityBuilder* id(int id);
+        EntityBuilder* image(Image* image);
+        EntityBuilder* position(int x, int y);
+        EntityBuilder* dimensions(int width, int height);
 
-        Entity* build();
+        virtual Entity* build();
 };
 
 #endif

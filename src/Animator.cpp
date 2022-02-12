@@ -25,10 +25,13 @@ void Animator::play(int x, int y, Graphics* g)
     (*this->active).play(g);
 };
 
-void Animator::addAnimation(Image* sprite, int id, int sizeX, int sizeY, int frameStart, int frameEnd)
+void Animator::addAnimation(Image* sprite, int id, int sizeX, int sizeY, int frameStart, int frameEnd, bool active)
 {
     Animation* animation = new Animation(sprite, id, sizeX, sizeY, frameStart, frameEnd);
     this->animations.push_back(animation);
+    
+    if(active)
+        this->active = animation;
 };
 
 void Animator::setAnimation(int id)

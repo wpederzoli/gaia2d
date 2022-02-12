@@ -1,4 +1,4 @@
-#include "Enitity.h"
+#include "Entity.h"
 
 Entity::Entity(int id) : SceneNode (id, 0, 0, 0, 0)
 {
@@ -7,6 +7,8 @@ Entity::Entity(int id) : SceneNode (id, 0, 0, 0, 0)
 };
 
 Entity::~Entity(){};
+
+Image* Entity::getImage(){ return this->image; };
 
 void Entity::setImage(Image* image){ this->image = image; };
 

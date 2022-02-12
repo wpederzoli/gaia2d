@@ -6,8 +6,10 @@
 #include "PlayerBase.h"
 #include "Scene.h"
 #include "Rectangle.h"
-#include "Enitity.h"
+#include "Entity.h"
 #include "EntityBuilder.h"
+#include "AnimatedEntity.h"
+#include "AnimatedEntityBuilder.h"
 
 class PlayerDemo : public Game
 {
@@ -16,7 +18,8 @@ class PlayerDemo : public Game
         PlayerBase player;
         Rectangle camera;
         Scene* scene;
-        Entity* entity; 
+        Entity* entity;
+        AnimatedEntity* animatedEntity; 
 
     public:
         PlayerDemo();
