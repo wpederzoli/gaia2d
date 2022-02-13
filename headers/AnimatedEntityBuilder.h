@@ -4,20 +4,19 @@
 #include "EntityBuilder.h"
 #include "AnimatedEntity.h"
 
-class AnimatedEntityBuilder : public EntityBuilder
+class AnimatedEntityBuilder : EntityBuilder
 {
-    // private:
-    //     AnimatedEntity* entity;
+    private:
+        AnimatedEntity* m_entity;
+        EntityBuilder m_eb;
     
-    // public:
-    //     AnimatedEntityBuilder(int id);
-    //     ~AnimatedEntityBuilder();
+    public:
+        AnimatedEntityBuilder();
+        ~AnimatedEntityBuilder();
 
-    //     virtual AnimatedEntityBuilder setImage(Image* image) override;
-
-    //     AnimatedEntityBuilder setSprite(Image* image);
-    //     AnimatedEntityBuilder addAnimation(int id, int frameWidth, int frameHeight, int frameStart, int frameEnd);
-    //     AnimatedEntity* build();
+        virtual AnimatedEntityBuilder* id(int id) override;
+        virtual AnimatedEntityBuilder* image(Image* image);
+        virtual AnimatedEntity* build() override;
 };
 
 #endif

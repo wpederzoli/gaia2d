@@ -1,22 +1,27 @@
 #include "AnimatedEntityBuilder.h"
 
-// AnimatedEntityBuilder::AnimatedEntityBuilder(int id) : EntityBuilder(id)
-// {
-//     this->entity = new AnimatedEntity(id);
-// };
 
-// AnimatedEntityBuilder::~AnimatedEntityBuilder(){};
+AnimatedEntityBuilder::AnimatedEntityBuilder()
+{
+    m_entity = NULL;
+};
 
-// AnimatedEntityBuilder AnimatedEntityBuilder::setSprite(Image* image)
-// {
-//     this->entity->setImage(image);
-//     return *this;
-// };
+AnimatedEntityBuilder::~AnimatedEntityBuilder(){};
 
-// AnimatedEntityBuilder AnimatedEntityBuilder::addAnimation(int id, int frameWidth, int frameHeight, int frameStart, int frameEnd)
-// {
-//     this->entity->addAnimation(id, frameWidth, frameHeight, frameStart, frameEnd);
-//     return *this;
-// };
+AnimatedEntityBuilder* AnimatedEntityBuilder::id(int id)
+{
+    m_eb = (*m_eb.id(id) );
+    return this;
+};
 
-// AnimatedEntity* AnimatedEntityBuilder::build(){ return this->entity; };
+AnimatedEntityBuilder* AnimatedEntityBuilder::image(Image* image)
+{
+    m_eb = (*m_eb.image(image) );
+    return this;
+};
+
+AnimatedEntity* AnimatedEntityBuilder::build()
+{
+    m_entity = static_cast<AnimatedEntity*>(m_eb.build() );
+    return m_entity;
+};

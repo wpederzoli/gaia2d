@@ -8,8 +8,8 @@
 #include "Rectangle.h"
 #include "Entity.h"
 #include "EntityBuilder.h"
-#include "AnimatedEntity.h"
 #include "AnimatedEntityBuilder.h"
+#include "AnimatedEntity.h"
 
 class PlayerDemo : public Game
 {

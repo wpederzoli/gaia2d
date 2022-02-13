@@ -2,15 +2,20 @@
 
 EntityBuilder::EntityBuilder()
 {
-    m_entity = NULL;
+    m_image = NULL;
+    m_id = -1;
+    m_x = 0;
+    m_y = 0;
+    m_width = 0;
+    m_height = 0;
 };
 
 EntityBuilder::~EntityBuilder(){};
 
 EntityBuilder* EntityBuilder::id(int id)
-{ 
+{
     m_id = id;
-    return this; 
+    return this;
 };
 
 EntityBuilder* EntityBuilder::image(Image* image)
@@ -19,28 +24,19 @@ EntityBuilder* EntityBuilder::image(Image* image)
     return this;
 };
 
-EntityBuilder* EntityBuilder::position(int x, int y)
-{
-    m_x = x;
-    m_y = y;
-    return this;
-};
-
-EntityBuilder* EntityBuilder::dimensions(int w, int h)
-{
-    m_width = w;
-    m_heigth = h;
-};
-
 Entity* EntityBuilder::build()
 {
-    m_entity = new Entity(m_id);
-    m_entity->setPosition(m_x, m_y);
-    m_entity->setSize(m_width, m_heigth);
-    m_entity->setImage(m_image);
+    if(m_id == -1 || m_image == NULL)
+        return NULL;
+    
+    Entity* entity = new Entity(m_id);
+    entity->setX(m_x);
+    entity->setY(m_y);
+    entity->setWidth(m_width);
+    entity->setHeight(m_height);
+    entity->setImage(m_image);
 
-    return m_entity;
+    return entity;
 };
-
 
 
