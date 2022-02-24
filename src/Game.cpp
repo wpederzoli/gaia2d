@@ -18,6 +18,7 @@ bool Game::initSystem(char const title[], int width, int height, bool fullscreen
         return false;
 
     input.init();
+    TTF_Init();
 
     return true;
 };
@@ -30,6 +31,11 @@ Graphics* Game::getGraphics()
 Input* Game::getInput()
 {
     return &this->input;
+};
+
+Audio* Game::getAudio()
+{
+    return &this->audio;
 };
 
 void Game::run()
@@ -65,11 +71,14 @@ void Game::run()
 
 void Game::end()
 {
-    this->isDone = false;
+    this->isDone = true;
 };
 
 void Game::kill()
 {
+    Mix_Quit();
+    IMG_Quit();
+    TTF_Quit();
     SDL_Quit();
 };
 

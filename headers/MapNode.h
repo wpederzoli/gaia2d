@@ -20,6 +20,7 @@ class MapNode : public SceneNode
         bool overlapsMap();
         
         void setCollision(bool collide){ this->solid = collide; };
+        void setMap(Map* m){ this->map = m; };
 };
 
 #endif
