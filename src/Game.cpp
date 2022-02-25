@@ -18,6 +18,7 @@ bool Game::initSystem(char const title[], int width, int height, bool fullscreen
         return false;
 
     input.init();
+    TTF_Init();
 
     return true;
 };
@@ -32,12 +33,19 @@ Input* Game::getInput()
     return &this->input;
 };
 
+Audio* Game::getAudio()
+{
+    return &this->audio;
+};
+
 void Game::run()
 {
     while(!this->isDone)
     {
         unsigned int frameStart = SDL_GetTicks();
         
+        this->getGraphics()->clear();
+
         SDL_Event event;
         while(SDL_PollEvent(&event) )
         {
@@ -52,6 +60,8 @@ void Game::run()
         update();
         draw(getGraphics());
 
+        this->getGraphics()->present();
+        
         int frameTime = SDL_GetTicks() - frameStart;
         int delay = (1000/this->fps) - frameTime;
 
@@ -61,11 +71,14 @@ void Game::run()
 
 void Game::end()
 {
-    this->isDone = false;
+    this->isDone = true;
 };
 
 void Game::kill()
 {
+    Mix_Quit();
+    IMG_Quit();
+    TTF_Quit();
     SDL_Quit();
 };
 

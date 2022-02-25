@@ -20,6 +20,7 @@ class Game
 
         Graphics* getGraphics();
         Input* getInput();
+        Audio* getAudio();
 
         bool initSystem(char const title[], int width, int height, bool fullscreen);
         void run();

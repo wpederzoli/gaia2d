@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 class Graphics
 {
@@ -23,7 +24,9 @@ class Graphics
         int getHeight();
         int getWidth();
         void present();
+
         void drawRect(int x, int y, int w, int h, int r, int b, int g);
+        void fillRect(int x, int y, int w, int h, int r, int b, int g);
 };
 
 #endif
