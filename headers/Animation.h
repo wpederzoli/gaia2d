@@ -40,6 +40,7 @@ class Animation
         void setSpeed(int s){ this->speed = s; };
         void setLoop(bool loop){ this->loop = loop; }; 
         void flip(bool flip){ this->flipHorizontal = flip; };
+        void free();
 
         int getId(){ return this->id; };
         bool isFlipped(){ return this->flipHorizontal; };
