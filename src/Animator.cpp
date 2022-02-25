@@ -59,6 +59,20 @@ void Animator::setAnimation(int id, bool flip, bool playOnce)
 
 };
 
+void Animator::free()
+{
+    sprite->free();
+    sprite = NULL;
+
+    while(!animations.empty() )
+    {
+        (*animations.begin() )->free();
+        animations.pop_front();
+    }
+
+    active = NULL; 
+};
+
 void Animator::setGlobalSpeed(int s)
 {
     std::list<Animation*>::iterator it;

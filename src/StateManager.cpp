@@ -40,4 +40,13 @@ void StateManager::draw(Graphics* g)
 bool StateManager::isEmpty()
 {
     return states.empty();
-}
+};
+
+void StateManager::free()
+{
+    while(!states.empty() )
+    {
+        states.top()->free();
+        states.pop();
+    }
+};

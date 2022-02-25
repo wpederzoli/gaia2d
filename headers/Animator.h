@@ -25,7 +25,8 @@ class Animator
         void setAnimation(int id);
         void setAnimation(int id, bool flip);
         void setAnimation(int id, bool flip, bool playOnce);
-        
+        void free();
+
         void play(Graphics* g);
         void play(int x, int y, Graphics* g);
         

@@ -97,4 +97,10 @@ void Animation::nextFrame()
         this->currentFrame = this->loop ? this->currentFrame = this->start : this->end - 1;
     else
         this->currentFrame++;
-}
+};
+
+void Animation::free()
+{
+    image->free();
+    image = NULL;
+};

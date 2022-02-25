@@ -11,7 +11,11 @@ void GameState::update(){};
 
 void GameState::draw(Graphics* g){};
 
-void GameState::free(){};
+void GameState::free()
+{
+    stateManager->free();
+    stateManager = NULL;
+};
 
 StateManager* GameState::getStateManager()
 {

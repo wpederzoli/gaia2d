@@ -21,6 +21,7 @@ class StateManager
         void update();
         void draw(Graphics* g);
         bool isEmpty();
+        void free();
 };
 
 #endif
