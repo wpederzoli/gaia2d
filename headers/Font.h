@@ -18,6 +18,10 @@ class Font
         ~Font();
 
         void setPosition(int x, int y);
+        int getXPosition();
+        int getYPosition();
+        int getWidth();
+        int getHeight();
 
         bool load(char const fontPath[], const char text[], int fontSize, Uint8 r, Uint8 g, Uint8 b, Uint8 a, Graphics* graphics);
         void draw(Graphics* g);

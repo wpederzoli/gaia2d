@@ -24,7 +24,7 @@ void SceneNode::update()
 void SceneNode::draw(Rectangle* view, Graphics* g)
 {
     if(view->overlaps(*this) && g != NULL)
-        g->drawRect(this->getX() - view->getX(), this->getY() - view->getY(), this->getWidth(), this->getHeight(), 255, 0, 0 );
+        g->drawRect(this->getX() - view->getX(), this->getY() - view->getY(), this->getWidth(), this->getHeight(), 0, 0, 0 );
 };
 
 void SceneNode::remove()

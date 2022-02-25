@@ -17,6 +17,14 @@ void Font::setPosition(int x, int y)
     m_yPos = y;
 };
 
+int Font::getXPosition(){ return m_xPos; };
+
+int Font::getYPosition(){ return m_yPos; };
+
+int Font::getWidth(){ return m_width; };
+
+int Font::getHeight(){ return m_heigth; };
+
 bool Font::load(char const fontFile[], const char text[], int fontSize, Uint8 r, Uint8 g, Uint8 b, Uint8 a, Graphics* graphics)
 {
     TTF_Font* font = TTF_OpenFont(fontFile, fontSize);
